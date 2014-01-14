@@ -21,7 +21,10 @@ Example:
 From: chris@place.com 
 Subject: System Update Phish
 
-We just saw SENDER:john@badness.com (all of them were from SENDINGIP:222.111.001.001) phished us with SUBJECT:"System Update" .. the attachment was FILENAME:update.exe we haven't had a chance to do any more than that but we saw the file detected as malicious in VT here LINK:https://www.virustotal.com/en/file/200f56fec7d3b793662ad9481f153f80cc79bc0f76ba999b8f5c24cea1ee9d88/analysis/  ... you guys Know about it? This is TLP:RED. 
+We just saw SENDER:john@badness.com (all of them were from SENDINGIP:222.111.001.001) phished us with SUBJECT:"System
+Update" .. the attachment was FILENAME:update.exe we haven't had a chance to do any more than that but we saw the
+file detected as malicious in VT here LINK:https://www.virustotal.com/en/file/200f56fec7d3b793662ad9481f153f80cc79bc0f76ba999b8f5c24cea1ee9d88/analysis/ 
+... you guys Know about it? This is TLP:RED. 
 
 - - -
 DB Entry: 
