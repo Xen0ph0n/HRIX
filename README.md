@@ -8,14 +8,14 @@ Simple Easy to use, reads like normal text and dosen't take much extra thought.
 CRUD capable .. to an extent. 
 Generate Event based on new email/message/alert. Update/add/remove with additional replys info. 
 Highest TLP (Sharing Classification) prevails. 
-Parsed by mail client plugin or messageing plugin ... rips to HRIX db then connects up to threat product of choice or exports IOC/MISP/ARCHER etc.
+Parsed by mail client plugin / parser or messaging plugin ... rips to HRIX db then connects up to threat product of choice or exports IOC/MISP/ARCHER etc.
 
 Syntax Parsing: 
-
+---------
 NAME:Indicator (Comments or NAME:Indicator to add context)
-
+---------
 Indicators in context/comment parens will be added as their own entities with inversed context to create proper linkage and tracking
-
+- - - 
 Example:
 
 From: chris@place.com 
@@ -23,6 +23,7 @@ Subject: System Update Phish
 
 We just saw SENDER:john@badness.com (all of them were from SENDINGIP:222.111.001.001) phished us with SUBJECT:"System Update" .. the attachment was FILENAME:update.exe we haven't had a chance to do any more than that but we saw the file detected as malicious in VT here LINK:https://www.virustotal.com/en/file/200f56fec7d3b793662ad9481f153f80cc79bc0f76ba999b8f5c24cea1ee9d88/analysis/  ... you guys Know about it? This is TLP:RED. 
 
+- - -
 DB Entry: 
 
 TLP:RED
@@ -32,24 +33,24 @@ OWNER: chris@place.com
 UUID: 08247082703470923344552222
 
 SENDER: john@badness.com // SENDINGIP: 222.111.001.001
-SENDER: 222.111.001.001 
+SENDINGIP: 222.111.001.001 // SENDER: john@badness.com
 SUBJECT:"System Update"
-FILENAME:update.exe
+FILENAME:update.exe 
 LINK:https://www.virustotal.com/en/file/200f56fec7d3b793662ad9481f153f80cc79bc0f76ba999b8f5c24cea1ee9d88/analysis/ 
-
+----------
 
 Multiple of a type can be entered as you would in language by pluralizing and comma seperating. 
-
+- - -
 Example: 
-THREATACTOR:monkeypanda useses C2IPS: 222.222.222.222, 111.111.111.111 also these C2DOMAINS:badness.net, donkey.com 
-
-DB Entry:
+THREATACTOR:monkeypanda uses C2IPS: 222.222.222.222, 111.111.111.111 also these C2DOMAINS:badness.net, donkey.com 
+- - -
+DB SNIP:
 THREATACTOR: monkeypanda
 C2IP: 222.222.222.222
 C2IP: 111.111.111.111
 C2DOMAIN: badness.net
 C2DOMAIN: donkey.com 
-
+-----------
 
 Each email/comment/reply can add new, remove, or propose new indicators as shown in the email thread below. 
 
@@ -59,24 +60,30 @@ NAME:Indicator to add proposed indicator
 
 Priority goes !NAME! --> NAME --> ?NAME? ... 
 
+- - -
 Example:
 
 Is ?C2DOMAIN?:donkey.com related? 
 
+- - - 
 
-DB
+DB SNIP
 POSSIBLE_C2DOMAIN: donkey.com  
 
+- - -
 REPLY: 
 
 No !C2DOMAIN!:donkey.com is used by someone else, but C2DOMAIN:doonkey.com is part of this activity. 
 
-DB
+- - -
+DB SNIP
 C2DOMAIN:doonkey.com 
 
+------------
 
 
-Full Thread Sample: 
+
+Full Thread Sample of HRIX: 
  
 
 ---- Initial Email / Thread ----
